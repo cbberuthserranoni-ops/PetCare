@@ -1,0 +1,223 @@
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/dm-sans.woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Serif Text';
+  src: url('/fonts/dm-serif-text.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: #f8f7f0;
+  color: #19372e;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; }
+
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+img, video { display: block; max-width: 100%; }
+
+:focus-visible {
+  outline: 3px solid #a5572b;
+  outline-offset: 4px;
+}
+
+.chat-toggle {
+  position: fixed;
+  z-index: 4;
+  right: 1.4rem;
+  bottom: 1.35rem;
+  border-radius: 2rem;
+  box-shadow: 0 4px 18px rgb(16 47 39 / 24%);
+}
+
+.chat-panel {
+  position: fixed;
+  z-index: 5;
+  right: 1.4rem;
+  bottom: 4.6rem;
+  width: min(26rem, calc(100vw - 2.8rem));
+  max-height: calc(100dvh - 6rem);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: .7rem;
+  background: var(--paper);
+  box-shadow: 0 10px 40px rgb(16 47 39 / 24%);
+}
+
+.chat-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .72rem .9rem;
+  background: var(--deep);
+  color: #fff;
+}
+
+.chat-heading h2 { color: inherit; font-size: 1.3rem; margin: 0; }
+
+.chat-heading button {
+  border: 0;
+  border-radius: .3rem;
+  background: transparent;
+  color: inherit;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.chat-history {
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  min-height: 8.5rem;
+  max-height: min(18rem, 52dvh);
+  overflow: auto;
+  padding: .75rem;
+}
+
+.chat-intro { color: var(--copy); font-size: .89rem; }
+
+.chat-bubble {
+  align-self: flex-start;
+  max-width: 92%;
+  padding: .55rem .7rem;
+  border-radius: .45rem;
+  background: #e6eddf;
+  font-size: .89rem;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.chat-bubble strong { display: block; font-size: .75rem; }
+.chat-user { align-self: flex-end; background: #eae4d3; }
+.chat-form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .45rem; padding: .65rem; }
+.chat-error { padding-inline: .65rem; }
+
+
+.specialties { background: var(--deep); color: #eef1e6; }
+
+.specialty-grid, .price-grid, .about, .contact-grid {
+  display: grid;
+  gap: clamp(2.1rem, 6vw, 6rem);
+}
+
+.specialty-grid, .price-grid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.45fr); }
+.specialty-grid h2 { color: #fff9e9; }
+.specialty-list { border-top: 1px solid rgb(238 241 230 / 35%); }
+
+.specialty-list article {
+  display: grid;
+  grid-template-columns: minmax(0, .75fr) minmax(0, 1fr);
+  gap: 1rem;
+  padding-block: 1.4rem;
+  border-bottom: 1px solid rgb(238 241 230 / 35%);
+}
+
+.specialty-list p { color: #dde8db; }
+.about { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; }
+.about p { max-width: 48ch; }
+.text-link { display: inline-block; margin-top: 1.35rem; font-weight: 700; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1.24fr 1fr;
+  gap: .8rem;
+  align-items: end;
+}
+
+.gallery figure:first-child { align-self: start; }
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.05;
+  object-fit: cover;
+  background: #e5eade;
+  border-radius: .4rem;
+}
+
+.gallery figure:nth-child(2) img { aspect-ratio: .87; }
+.gallery figcaption { margin-top: .5rem; color: var(--copy); font-size: .74rem; }
+
+.price-section { background: var(--soft); }
+
+.price-list {
+  padding-inline: 1.5rem;
+  background: #fbfaf5;
+  border: 1px solid var(--line);
+  border-radius: .55rem;
+}
+
+.price-list article {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;
+}
+
+.price-list article + article { border-top: 1px solid var(--line); }
+.price-list h3 { margin-bottom: .25rem; }
+.price-list strong { color: var(--ink); white-space: nowrap; }
+
+.contact-grid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+.clinic-info dt { font-weight: 700; margin-top: 1.25rem; }
+.clinic-info dd { margin-top: .3rem; line-height: 1.5; }
+
+.contact-form {
+  display: grid;
+  gap: .95rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: .55rem;
+  background: #fcfbf6;
+}
+
+.contact-form h3 { font-size: 1.85rem; margin-bottom: .4rem; }
+.field-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
+.contact-form label { display: grid; gap: .35rem; color: var(--ink); font-size: .88rem; font-weight: 700; }
+.contact-form > button { justify-self: start; }
+
+input, textarea {
+  width: 100%;
+  min-width: 0;
+  padding: .66rem .72rem;
+  border: 1px solid #aab8ad;
+  border-radius: .32rem;
+  background: #fff;
+  color: var(--dark);
+  font-weight: 400;
+}
+
+textarea { resize: vertical; }
+.status { font-size: .87rem; }
+.error { color: #8a2b27; }
+.success { color: #1a5c42; }
+
+
+footer { background: #e9ece1; color: var(--deep); }
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1.5rem 4.4rem;
+}
+
+.footer-inner strong { font: 1.45rem 'DM Serif Text', Georgia, serif; }
+
